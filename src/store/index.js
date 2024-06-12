@@ -12,7 +12,7 @@ export const useAppStore = defineStore('app', () =>{
     const tokens = ref(10)
 
     const getCvData = () => {
-        API.getData('cv').then((data) => {
+        API.getData('cv', user.value.email).then((data) => {
             cvArray.value = data
             tokens.value = MAX_TOKENS - cvArray.value.length
         })
